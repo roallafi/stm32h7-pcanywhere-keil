@@ -1,0 +1,147 @@
+; STM32H7 DOS Remote Desktop Client - CubeMX Project Configuration
+; This file contains all the necessary CubeMX settings for the project
+; Open this file in STM32CubeMX to auto-generate the project
+
+[ProjectInformation]
+TargetToolchain=STM32CubeMX
+DeviceType=STM32H743ZI
+ToolChainLocation=
+
+[Clock Configuration]
+SystemClock=400000000
+HSEFrequency=25000000
+PLLEnabled=1
+PLLSource=HSE
+PLLM=5
+PLLN=160
+PLLP=2
+PLLQ=4
+AHBDivider=1
+APB1Divider=4
+APB2Divider=2
+APB3Divider=4
+
+[Pin Configuration]
+; UART1 (Serial to DOS)
+PA9=USART1_TX
+PA10=USART1_RX
+
+; FSMC (TFT Parallel Interface)
+PD0=FMC_D2
+PD1=FMC_D3
+PD4=FMC_NOE
+PD5=FMC_NWE
+PD8=FMC_D13
+PD9=FMC_D14
+PD10=FMC_D15
+PD11=FMC_A16_CLE
+PD12=FMC_A17
+PD13=FMC_A18
+PD14=FMC_D0
+PD15=FMC_D1
+
+PE0=FMC_NBL0
+PE1=FMC_NBL1
+PE2=FMC_A23
+PE3=FMC_A19
+PE4=FMC_A20
+PE5=FMC_A21
+PE6=FMC_A22
+PE7=FMC_D4
+PE8=FMC_D5
+PE9=FMC_D6
+PE10=FMC_D7
+PE11=FMC_D8
+PE12=FMC_D9
+PE13=FMC_D10
+PE14=FMC_D11
+PE15=FMC_D12
+
+; USB OTG HS (Keyboard Input)
+PB12=USB_OTG_HS_VBUS
+PB13=USB_OTG_HS_DM
+PB14=USB_OTG_HS_DP
+
+; Status LEDs (optional)
+PB0=GPIO_Output ; Green LED
+PB1=GPIO_Output ; Red LED
+PB14=GPIO_Output ; Blue LED
+
+[UART Configuration]
+USART1_BaudRate=9600
+USART1_WordLength=8bits
+USART1_StopBits=1
+USART1_Parity=None
+USART1_Mode=TX_RX
+USART1_HardwareFlowControl=None
+USART1_OverSampling=16
+USART1_DMA_RX=Enabled
+USART1_DMA_TX=Disabled
+
+[FSMC Configuration]
+FSMC_Bank1=NOR_SRAM
+FSMC_MemoryType=SRAM
+FSMC_MemoryWidth=16bit
+FSMC_BurstMode=Disabled
+FSMC_WaitSignal=Disabled
+FSMC_WriteOperation=Enabled
+FSMC_ExtendedMode=Disabled
+FSMC_AddressSetupTime=15
+FSMC_AddressHoldTime=15
+FSMC_DataSetupTime=60
+FSMC_BusTurnAroundDuration=0
+
+[USB Configuration]
+USB_OTG_HS_Mode=HostOnly
+USB_OTG_HS_VbusSensing=Enabled
+USB_OTG_HS_ULPI=Disabled
+USB_OTG_HS_LowPower=Disabled
+USB_OTG_HS_SOF=Disabled
+USB_OTG_HS_MaxPower=100mA
+
+[DMA Configuration]
+DMA1_Stream0=USART1_RX
+DMA1_Stream0_Priority=Very_High
+DMA1_Stream0_DataWidth=Byte
+DMA1_Stream0_MemInc=Enabled
+DMA1_Stream0_PeriphInc=Disabled
+DMA1_Stream0_Circular=Enabled
+
+[FreeRTOS Configuration]
+FreeRTOS_Enabled=1
+FreeRTOS_TickRate=1000
+FreeRTOS_UsePreemption=1
+FreeRTOS_UseIdleHook=0
+FreeRTOS_UseMallocFailedHook=0
+FreeRTOS_UseTickHook=1
+FreeRTOS_MaxPriorities=5
+FreeRTOS_MinStackSize=128
+FreeRTOS_TotalHeapSize=65536
+
+[Peripheral Clocks]
+USART1=Enabled
+FSMC=Enabled
+DMA1=Enabled
+DMA2=Enabled
+USB_OTG_HS=Enabled
+GPIOA=Enabled
+GPIOB=Enabled
+GPIOD=Enabled
+GPIOE=Enabled
+GPIOF=Enabled
+GPIOG=Enabled
+
+[Interrupt Priorities]
+USART1_IRQn=5
+USB_OTG_HS_IRQn=6
+DMA1_Stream0_IRQn=7
+SysTick_IRQn=15
+
+[Memory Configuration]
+Flash=2048KB
+RAM_DTCM=128KB
+RAM_ITCM=64KB
+RAM_AXI=512KB
+RAM_D2=288KB
+RAM_D3=64KB
+
